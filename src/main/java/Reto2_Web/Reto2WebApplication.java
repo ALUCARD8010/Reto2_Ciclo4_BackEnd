@@ -1,6 +1,7 @@
 package Reto2_Web;
 
 import Reto2_Web.interfaces.InterfaceCleaningproducts;
+import Reto2_Web.interfaces.InterfaceOrder;
 import Reto2_Web.interfaces.InterfaceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +16,9 @@ public class Reto2WebApplication implements CommandLineRunner {
     private InterfaceUser interfaceUser;
     @Autowired
     private InterfaceCleaningproducts interfaceCleaningproducts;
+    @Autowired
+    private InterfaceOrder interfaceOrder;
+    
     
 
 	public static void main(String[] args) {
@@ -24,6 +28,9 @@ public class Reto2WebApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         interfaceCleaningproducts.deleteAll();
         interfaceUser.deleteAll();
+        interfaceOrder.deleteAll();
+        
+        
     }
     
     

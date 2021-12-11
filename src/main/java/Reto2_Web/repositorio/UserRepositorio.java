@@ -18,36 +18,36 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepositorio {
     @Autowired
-    private InterfaceUser userCrudRepository;
+    private InterfaceUser userRepositorio;
      
     public List<User> getAll() {
-        return (List<User>) userCrudRepository.findAll();
+        return (List<User>) userRepositorio.findAll();
     }
 
-    public Optional<User> getUser(int id) {
-        return userCrudRepository.findById(id);
+    public Optional<User> getUser(Integer id) {
+        return userRepositorio.findById(id);
     }
 
     public User create(User user) {
-        return userCrudRepository.save(user);
+        return userRepositorio.save(user);
     }
     
     public void update(User user) {
-        userCrudRepository.save(user);
+        userRepositorio.save(user);
     }
     
     public void delete(User user) {
-        userCrudRepository.delete(user);
+        userRepositorio.delete(user);
     }
 
     public boolean emailExists(String email) {
-        Optional<User> usuario = userCrudRepository.findByEmail(email);
+        Optional<User> usuario = userRepositorio.findByEmail(email);
         
         return !usuario.isEmpty();
     }
     
     public Optional<User> authenticateUser(String email, String password) {
-        return userCrudRepository.findByEmailAndPassword(email, password);
+        return userRepositorio.findByEmailAndPassword(email, password);
     }
      
      

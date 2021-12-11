@@ -1,11 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Reto2_Web.controlador;
 
-import Reto2_Web.modelo.Cleaningproducts;
-import Reto2_Web.servicio.CleaningproductsService;
+import Reto2_Web.modelo.Order;
+import Reto2_Web.servicio.OrderService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,42 +24,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author USUARIO
+ * @author lnavarrp
  */
 @RestController
-@RequestMapping("/api/cleaningprod")
+@RequestMapping("/api/order")
 @CrossOrigin("*")
-public class CleaningproductsController {
+public class OrderController {
     
     @Autowired
-    private CleaningproductsService cleaningproductsService;
-       
+    private OrderService orderService;
+
     @GetMapping("/all")
-    public List<Cleaningproducts> getAll() {
-        return cleaningproductsService.getAll();
+    public List<Order> getAll() {
+        return orderService.getAll();
     }
-    
+
     @GetMapping("/{id}")
-    public Optional<Cleaningproducts> getCleaningproducts(@PathVariable("id") Integer id) {
-        return cleaningproductsService.getCleaningProducts(id);
+    public Optional<Order> getOrder(@PathVariable("id") Integer id) {
+        return orderService.getOrder(id);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cleaningproducts create(@RequestBody Cleaningproducts product) {
-        return cleaningproductsService.create(product);
+    public Order create(@RequestBody Order product) {
+        return orderService.create(product);
     }
-    
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cleaningproducts update(@RequestBody Cleaningproducts product) {
-        return cleaningproductsService.update(product);
+    public Order update(@RequestBody Order product) {
+        return orderService.update(product);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") Integer id) {
-        return cleaningproductsService.delete(id);
+        return orderService.delete(id);
     }
     
 }
